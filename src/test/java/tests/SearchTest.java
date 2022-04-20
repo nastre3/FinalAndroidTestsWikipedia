@@ -22,4 +22,16 @@ public class SearchTest extends CoreTestCase {
         searchPage.findByText("Java");
         searchPage.selectByText("Island of Indonesia");
     }
+
+    @Test
+    public void testNegativeSearch() {
+        IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
+        IStartPageObject startPage = StartPageFactory.get(this.driver);
+        ISearchPageObject searchPage = SearchPageFactory.get(this.driver);
+
+        onboardingPage.skipOnboarding();
+        startPage.initSearch();
+        searchPage.findByText("qwerty12");
+        searchPage.findByText("No results found");
+    }
 }
