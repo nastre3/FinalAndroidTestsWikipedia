@@ -1,9 +1,11 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.ui.pages.factory.ArticlePageFactory;
 import lib.ui.pages.factory.OnboardingPageFactory;
 import lib.ui.pages.factory.SearchPageFactory;
 import lib.ui.pages.factory.StartPageFactory;
+import lib.ui.pages.interfaces.IArticlePageObject;
 import lib.ui.pages.interfaces.IOnboardingPageObject;
 import lib.ui.pages.interfaces.ISearchPageObject;
 import lib.ui.pages.interfaces.IStartPageObject;
@@ -33,5 +35,16 @@ public class SearchTest extends CoreTestCase {
         startPage.initSearch();
         searchPage.findByText("qwerty12");
         searchPage.findByText("No results found");
+    }
+
+    @Test
+    public void testFeaturedArticle() {
+        IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
+        IStartPageObject startPage = StartPageFactory.get(this.driver);
+        IArticlePageObject articlePage = ArticlePageFactory.get(this.driver);
+
+        onboardingPage.skipOnboarding();
+        startPage.clickFeaturedArticle();
+        articlePage.clickArticlePencil();
     }
 }
