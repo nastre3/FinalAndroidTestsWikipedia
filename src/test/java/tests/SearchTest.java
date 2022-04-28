@@ -47,4 +47,15 @@ public class SearchTest extends CoreTestCase {
         startPage.clickFeaturedArticle();
         articlePage.clickArticlePencil();
     }
+
+    @Test
+    public void testMyList() {
+        IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
+        IStartPageObject startPage = StartPageFactory.get(this.driver);
+        IArticlePageObject articlePage = ArticlePageFactory.get(this.driver);
+
+        onboardingPage.skipOnboarding();
+        startPage.clickMyList();
+        startPage.assertMyListOpened();
+    }
 }

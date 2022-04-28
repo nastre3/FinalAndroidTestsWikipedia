@@ -19,7 +19,6 @@ public class AndroidSearchPageObject extends MainPageObject implements ISearchPa
                 SEARCH_INPUT,
                 "Cannot find search input"
         );
-
         searchInput.sendKeys(text);
     }
 
@@ -28,7 +27,6 @@ public class AndroidSearchPageObject extends MainPageObject implements ISearchPa
                 getResultElementByText(text),
                 "Cannot find result: '" + text + "'"
         );
-
         expectedResult.click();
     }
 

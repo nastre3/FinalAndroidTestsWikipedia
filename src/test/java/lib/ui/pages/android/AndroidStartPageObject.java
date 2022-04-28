@@ -8,6 +8,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class AndroidStartPageObject extends MainPageObject implements IStartPageObject {
     final static String INIT_SEARCH = "id:org.wikipedia:id/search_container";
     final static String FEATURED_ARTICLE = "id:view_featured_article_card_article_title";
+    final static String FEATURED_ARTICLE_IMAGE = "id:view_featured_article_card_image";
+    final static String MY_LIST_BUTTON = "id:0x1";
+    final static String MY_LIST_SEARCH = "id:@id/menu_search_lists";
 
     public AndroidStartPageObject(RemoteWebDriver driver) {
         super(driver);
@@ -22,10 +25,33 @@ public class AndroidStartPageObject extends MainPageObject implements IStartPage
     }
 
     public void clickFeaturedArticle() {
+        /*
         WebElement featuredArticle = this.waitForElementPresent(
                 FEATURED_ARTICLE,
                 "Cannot find Featured Article"
         );
-        featuredArticle.click();
+         */
+
+        WebElement featuredArticleImage = this.waitForElementPresent(
+                FEATURED_ARTICLE_IMAGE,
+                "Cannot find Featured Article Image"
+        );
+        // featuredArticle.click();
+        featuredArticleImage.click();
+    }
+
+    public void clickMyList() {
+        WebElement myListButton = this.waitForElementPresent(
+                MY_LIST_BUTTON,
+                "Cannot find My List Button"
+        );
+        myListButton.click();
+    }
+
+    public void assertMyListOpened() {
+        WebElement expectedResult = this.waitForElementPresent(
+                MY_LIST_SEARCH,
+                "Cannot find My Lists label"
+        );
     }
 }
