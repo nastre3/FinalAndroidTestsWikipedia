@@ -7,9 +7,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AndroidStartPageObject extends MainPageObject implements IStartPageObject {
     final static String INIT_SEARCH = "id:org.wikipedia:id/search_container";
-    final static String FEATURED_ARTICLE = "id:view_featured_article_card_article_title";
     final static String FEATURED_ARTICLE_IMAGE = "id:view_featured_article_card_image";
-    final static String MY_LIST_BUTTON = "id:0x1";
+    final static String MY_LIST_BUTTON = "id:org.wikipedia:id/0x1";
     final static String MY_LIST_SEARCH = "id:@id/menu_search_lists";
 
     public AndroidStartPageObject(RemoteWebDriver driver) {
