@@ -1,14 +1,8 @@
 package tests;
 
 import lib.CoreTestCase;
-import lib.ui.pages.factory.ArticlePageFactory;
-import lib.ui.pages.factory.OnboardingPageFactory;
-import lib.ui.pages.factory.SearchPageFactory;
-import lib.ui.pages.factory.StartPageFactory;
-import lib.ui.pages.interfaces.IArticlePageObject;
-import lib.ui.pages.interfaces.IOnboardingPageObject;
-import lib.ui.pages.interfaces.ISearchPageObject;
-import lib.ui.pages.interfaces.IStartPageObject;
+import lib.ui.pages.factory.*;
+import lib.ui.pages.interfaces.*;
 import org.junit.Test;
 
 public class SearchTest extends CoreTestCase {
@@ -52,10 +46,18 @@ public class SearchTest extends CoreTestCase {
     public void testMyList() {
         IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
         IStartPageObject startPage = StartPageFactory.get(this.driver);
-        IArticlePageObject articlePage = ArticlePageFactory.get(this.driver);
-
         onboardingPage.skipOnboarding();
         startPage.clickMyList();
         startPage.assertMyListOpened();
+    }
+
+    @Test
+    public void testSettings() {
+        IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
+        IStartPageObject startPage = StartPageFactory.get(this.driver);
+        ISettingsPageObject settingsPage = SettingsPageFactory.get(this.driver);
+        onboardingPage.skipOnboarding();
+        startPage.clickMenuAndSettings();
+        settingsPage.assertSettingsOpened();
     }
 }

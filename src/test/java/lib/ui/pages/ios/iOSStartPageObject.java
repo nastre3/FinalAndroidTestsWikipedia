@@ -7,10 +7,13 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class iOSStartPageObject extends MainPageObject implements IStartPageObject {
     final static String INIT_SEARCH = "xpath://XCUIElementTypeSearchField[@name='Search Wikipedia']";
-    final static String FEATURED_ARTICLE = "id:view_featured_article_card_article_title";
     final static String FEATURED_ARTICLE_IMAGE = "id:view_featured_article_card_image";
     final static String MY_LIST_BUTTON = "id:0x1";
     final static String MY_LIST_SEARCH = "id:menu_search_lists";
+    final static String MENU_BUTTON = "id:menu_overflow_button";
+    final static String SETTINGS_BUTTON = "id:explore_overflow_settings";
+
+
     public iOSStartPageObject(RemoteWebDriver driver) {
         super(driver);
     }
@@ -52,5 +55,20 @@ public class iOSStartPageObject extends MainPageObject implements IStartPageObje
                 MY_LIST_SEARCH,
                 "Cannot find My Lists label"
         );
+    }
+
+    @Override
+    public void clickMenuAndSettings() {
+        WebElement menuButton = this.waitForElementPresent(
+                MENU_BUTTON,
+                "Cannot find Menu Button"
+        );
+        menuButton.click();
+
+        WebElement settingsButton = this.waitForElementPresent(
+                SETTINGS_BUTTON,
+                "Cannot find Settings Button"
+        );
+        settingsButton.click();
     }
 }
