@@ -12,6 +12,7 @@ public class iOSStartPageObject extends MainPageObject implements IStartPageObje
     final static String MY_LIST_SEARCH = "id:menu_search_lists";
     final static String MENU_BUTTON = "id:menu_overflow_button";
     final static String SETTINGS_BUTTON = "id:explore_overflow_settings";
+    private static final String LOGIN_BUTTON = "id:explore_overflow_account_name";
 
 
     public iOSStartPageObject(RemoteWebDriver driver) {
@@ -57,18 +58,31 @@ public class iOSStartPageObject extends MainPageObject implements IStartPageObje
         );
     }
 
+
     @Override
-    public void clickMenuAndSettings() {
+    public void clickMenu() {
         WebElement menuButton = this.waitForElementPresent(
                 MENU_BUTTON,
                 "Cannot find Menu Button"
         );
         menuButton.click();
+    }
 
+    @Override
+    public void clickSettings() {
         WebElement settingsButton = this.waitForElementPresent(
                 SETTINGS_BUTTON,
                 "Cannot find Settings Button"
         );
         settingsButton.click();
+    }
+
+    @Override
+    public void clickLogin() {
+        WebElement loginButton = this.waitForElementPresent(
+                LOGIN_BUTTON,
+                "Cannot find Login Button"
+        );
+        loginButton.click();
     }
 }

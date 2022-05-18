@@ -5,5 +5,7 @@ public interface IStartPageObject {
     public void clickFeaturedArticle();
     public void clickMyList();
     public void assertMyListOpened();
-    public void clickMenuAndSettings();
+    public void clickMenu();
+    public void clickSettings();
+    public void clickLogin();
 }

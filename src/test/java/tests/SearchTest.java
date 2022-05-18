@@ -52,12 +52,24 @@ public class SearchTest extends CoreTestCase {
     }
 
     @Test
-    public void testSettings() {
+    public void testSettingsPage() {
         IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
         IStartPageObject startPage = StartPageFactory.get(this.driver);
         ISettingsPageObject settingsPage = SettingsPageFactory.get(this.driver);
         onboardingPage.skipOnboarding();
-        startPage.clickMenuAndSettings();
+        startPage.clickMenu();
+        startPage.clickSettings();
         settingsPage.assertSettingsOpened();
+    }
+
+    @Test
+    public void testLoginPage() {
+        IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
+        IStartPageObject startPage = StartPageFactory.get(this.driver);
+        ILoginPageObject loginPage = LoginPageFactory.get(this.driver);
+        onboardingPage.skipOnboarding();
+        startPage.clickMenu();
+        startPage.clickLogin();
+        loginPage.assertLoginOpened();
     }
 }
