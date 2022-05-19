@@ -3,9 +3,11 @@ package tests;
 import lib.CoreTestCase;
 import lib.ui.pages.factory.*;
 import lib.ui.pages.interfaces.*;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 
-public class SearchTest extends CoreTestCase {
+public class Tests extends CoreTestCase {
 
     @Test
     public void testSearch() {
@@ -42,6 +44,7 @@ public class SearchTest extends CoreTestCase {
         articlePage.clickArticlePencil();
     }
 
+    @Ignore
     @Test
     public void testMyList() {
         IOnboardingPageObject onboardingPage = OnboardingPageFactory.get(this.driver);
