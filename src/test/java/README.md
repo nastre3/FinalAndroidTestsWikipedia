@@ -1,6 +1,6 @@
 Для запуска тестов нужно:
 1. Установить Appium Server GUI (1.22.2)
-2. Android Studio
+2. Установить Android Studio, cоздать c AWD Name = MyPhone (Android 10.0)
 3. Нажать Ctrl+shift+F10 для запуска набора тестов tests/Tests.java
 
 В репозитории 6 тестов (1 пропущен):
